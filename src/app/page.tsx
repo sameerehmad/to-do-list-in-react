@@ -1,3 +1,4 @@
+import React, {useState}  from 'react';
 import Header from "./components/Header/header";
 import List from "./components/List/list";
 
@@ -8,9 +9,9 @@ type TodoItem = {
   created_at: string;
 };
 
-var items:TodoItem[] = [{id: 1, todo: "First item", color:"green", created_at:Date()},
+const [items, setItems] = useState([{id: 1, todo: "First item", color:"green", created_at:Date()},
                         {id: 2, todo: "Second item", color:"violet", created_at:Date()},
-                        {id: 3, todo: "Third item", color:"red", created_at:Date()}];
+                        {id: 3, todo: "Third item", color:"red", created_at:Date()}]);
 
 export default function Page() {
   return (
