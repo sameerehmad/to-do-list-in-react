@@ -11,7 +11,7 @@ type TodoItem = {
 // const itemColors:string[] = ["blue", "green", "yellow", "red", "violet", "pink"];
 
 export default function List ({initItems} : {initItems : TodoItem[]}){
-    const [items, setItems] = useState(initItems);
+    const [items] = useState(initItems);
     return (
     <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
         {items.map((item) => (
