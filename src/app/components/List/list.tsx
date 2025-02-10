@@ -6,13 +6,13 @@ type TodoItem = {
     created_at: string;
 };
 
-const itemColors:string[] = ["blue", "green", "yellow", "red", "violet", "pink"];
+// const itemColors:string[] = ["blue", "green", "yellow", "red", "violet", "pink"];
 
 export default function List ({items} : {items : TodoItem[]}){
     return (
     <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
         {items.map((item) => (
-            <ListItem item={item} />
+            <ListItem key={item.id} item={item} />
         ))}
     </ul>
     );
