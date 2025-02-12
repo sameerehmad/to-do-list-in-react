@@ -14,14 +14,16 @@ type TodoItem = {
 export default function List ({initItems} : {initItems : TodoItem[]}){
     const [items] = useState(initItems);
     return (
-        <>
+        <div className='flex flex-col align-items-center'>
             <InputBox type="text" />
-            <button>Add</button>
+            <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-full w-1/4 mx-auto my-2"
+            >Add</button>
             <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
                 {items.map((item) => (
                     <ListItem key={item.id} item={item} />
                 ))}
             </ul>
-        </>
+        </div>
     );
 }
