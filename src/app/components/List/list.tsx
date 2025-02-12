@@ -1,5 +1,4 @@
 'use client';
-import { randomInt } from 'crypto';
 import React, {useState} from 'react'
 import InputBox from '../InputBox/inputBox'
 import ListItem from '../ListItem/listItem'
@@ -20,7 +19,7 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
     function addItem() {
         if (input.trim() === "") {return alert("Please type something important");}
 
-        let item : TodoItem = {
+        const item : TodoItem = {
             id: items.length + 1,
             todo: input,
             color: itemColors[getRandomInRange(0,6)],
