@@ -1,5 +1,3 @@
-import React, { MouseEventHandler } from "react";
-
 type TodoItem = {
     id: number;
     todo: string;
