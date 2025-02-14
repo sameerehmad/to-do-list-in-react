@@ -16,18 +16,19 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
     const [items, setItems] = useState(initItems);
     const [input, setInput] = useState("");
 
+    const lastId = React.useRef(3);
+
     function addItem() {
         if (input.trim() === "") {return alert("Please type something important");}
-        const lastId = items.at(-1)?.id;
 
         const item : TodoItem = {
-            id: (lastId ?? 1) + 1,
+            id: (lastId.current += 1),
             todo: input,
             color: itemColors[getRandomInRange(0,6)],
             created_at: Date()
         };
 
-        setItems([...items, item]);
+        setItems([item, ...items]);
         setInput("");
     }
 
