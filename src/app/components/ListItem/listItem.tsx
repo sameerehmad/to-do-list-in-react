@@ -6,7 +6,7 @@ type TodoItem = {
     color: string;
     created_at: string;
 };
-export default function ListItem({item, deleteHandler} : {item : TodoItem, deleteHandler : MouseEventHandler}) {
+export default function ListItem({item, deleteHandler} : {item : TodoItem, deleteHandler : (id : number) => void}) {
     return (
         <li className="mx-auto my-2 px-4 py-2 w-11/12 flex align-items-center rounded-xl text-lg border-black border group" style={{backgroundColor : item.color}}>
             <span className="flex flex-grow align-middle justify-center my-1 break-all flex-wrap h-8 ">{item.todo}</span>
@@ -20,7 +20,7 @@ export default function ListItem({item, deleteHandler} : {item : TodoItem, delet
                            hover:opacity-100 hover:bg-red-700
                            hover:text-white hover:scale-110
                            hover:font-bold"
-                           onClick={deleteHandler}
+                           onClick={() => deleteHandler(item.id)}
             >
                 Delete
             </button>
