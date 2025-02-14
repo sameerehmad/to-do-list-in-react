@@ -6,7 +6,7 @@ type TodoItem = {
     color: string;
     created_at: string;
 };
-export default function ListItem({item, deleteHandler, children} : {item : TodoItem, deleteHandler : MouseEventHandler, children : React.ReactNode}) {
+export default function ListItem({item, deleteHandler} : {item : TodoItem, deleteHandler : MouseEventHandler}) {
     return (
         <li className="mx-auto my-2 px-4 py-2 w-3/4 flex align-items-center rounded-xl text-lg border-black border group" style={{backgroundColor : item.color}}>
             <span className="flex flex-grow align-middle justify-center my-1">{item.todo}</span>
