@@ -32,6 +32,10 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
         setInput("");
     }
 
+    function deleteItem(id : number) {
+        setItems(items.filter((item) => item.id !== id));
+    }
+
     return (
         <div className='flex flex-col align-items-center'>
             <InputBox 
@@ -47,7 +51,7 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
             </button>
             <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
                 {items.map((item) => (
-                    <ListItem key={item.id} item={item} deleteHandler={() => {alert("This will delete")}} />
+                    <ListItem key={item.id} item={item} deleteHandler={deleteItem} />
                 ))}
             </ul>
         </div>
