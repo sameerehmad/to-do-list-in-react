@@ -9,24 +9,26 @@ type TodoItem = {
     created_at: string;
 };
 
-const itemColors:string[] = ["blue", "green", "yellow", "red", "violet", "pink"];
+const itemColors:string[] = ["blue", "green", "yellow", "orange", "violet", "pink"];
 const getRandomInRange = (min : number, max : number) => Math.floor(Math.random() * (max - min)) + min;
 
 export default function List ({initItems} : {initItems : TodoItem[]}){
     const [items, setItems] = useState(initItems);
     const [input, setInput] = useState("");
 
+    const lastId = React.useRef(3);
+
     function addItem() {
         if (input.trim() === "") {return alert("Please type something important");}
 
         const item : TodoItem = {
-            id: items.length + 1,
+            id: (lastId.current += 1),
             todo: input,
             color: itemColors[getRandomInRange(0,6)],
             created_at: Date()
         };
 
-        setItems([item ,...items]);
+        setItems([item, ...items]);
         setInput("");
     }
 
@@ -45,7 +47,7 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
             </button>
             <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
                 {items.map((item) => (
-                    <ListItem key={item.id} item={item} />
+                    <ListItem key={item.id} item={item} deleteHandler={() => {alert("This will delete")}} />
                 ))}
             </ul>
         </div>
