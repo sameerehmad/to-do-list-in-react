@@ -20,6 +20,7 @@ export default function ListItem({item, deleteHandler} : {item : TodoItem, delet
                            hover:opacity-100 hover:bg-red-600
                            hover:text-white hover:scale-110
                            hover:font-bold"
+                           onClick={deleteHandler}
             >
                 Delete
             </button>
