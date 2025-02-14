@@ -9,7 +9,7 @@ type TodoItem = {
     created_at: string;
 };
 
-const itemColors:string[] = ["blue", "green", "yellow", "red", "violet", "pink"];
+const itemColors:string[] = ["blue", "green", "yellow", "orange", "violet", "pink"];
 const getRandomInRange = (min : number, max : number) => Math.floor(Math.random() * (max - min)) + min;
 
 export default function List ({initItems} : {initItems : TodoItem[]}){
@@ -45,7 +45,8 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
             </button>
             <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
                 {items.map((item) => (
-                    <ListItem key={item.id} item={item} />
+                    <ListItem key={item.id} item={item} deleteHandler={() => {}}>
+                    </ListItem>
                 ))}
             </ul>
         </div>
