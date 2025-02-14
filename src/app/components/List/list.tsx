@@ -18,15 +18,16 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
 
     function addItem() {
         if (input.trim() === "") {return alert("Please type something important");}
+        const lastId = items.at(-1)?.id;
 
         const item : TodoItem = {
-            id: items.length + 1,
+            id: (lastId ?? 1) + 1,
             todo: input,
             color: itemColors[getRandomInRange(0,6)],
             created_at: Date()
         };
 
-        setItems([item ,...items]);
+        setItems([...items, item]);
         setInput("");
     }
 
