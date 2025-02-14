@@ -46,7 +46,7 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
             </button>
             <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
                 {items.map((item) => (
-                    <ListItem key={item.id} item={item} deleteHandler={() => {}} />
+                    <ListItem key={item.id} item={item} deleteHandler={() => {alert("This will delete")}} />
                 ))}
             </ul>
         </div>
