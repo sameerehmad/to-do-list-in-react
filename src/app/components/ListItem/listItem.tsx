@@ -15,9 +15,9 @@ export default function ListItem({item, deleteHandler} : {item : TodoItem, delet
                 className="bg-red-100 text-red py-1 
                            rounded-full w-1/6 mr-1 my-1
                            h-12
-                           group-hover:opacity-80 opacity-0
+                           group-hover:opacity-90 opacity-0
                            transition-all duration-300
-                           hover:opacity-100 hover:bg-red-600
+                           hover:opacity-100 hover:bg-red-700
                            hover:text-white hover:scale-110
                            hover:font-bold"
                            onClick={deleteHandler}

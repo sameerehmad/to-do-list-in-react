@@ -8,7 +8,7 @@ type TodoItem = {
   };
 const items:TodoItem[] = [{id: 1, todo: "First item", color:"green", created_at:Date()},
                           {id: 2, todo: "Second item", color:"violet", created_at:Date()},
-                          {id: 3, todo: "Third item", color:"red", created_at:Date()}];
+                          {id: 3, todo: "Third item", color:"orange", created_at:Date()}];
 
 
 
