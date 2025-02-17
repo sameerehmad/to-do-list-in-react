@@ -54,7 +54,7 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
 
     function toggleFav(item : TodoItem) {
         deleteItem(item.id, item.isFav);
-        (item.isFav = !item.isFav);
+        item.isFav = !item.isFav;
         addToList(item);
     }
 
