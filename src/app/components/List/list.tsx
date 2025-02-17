@@ -15,7 +15,12 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
     const lastId = React.useRef(3);
 
     function addToList(item : TodoItem) {
-        item.isFav? setFavs([item, ...favs]) : setItems([item, ...items]);
+        if(item.isFav) {
+            setFavs([item, ...favs]);
+        }
+        else {
+            setItems([item, ...items]);
+        }
     }
 
     function addItem() {
