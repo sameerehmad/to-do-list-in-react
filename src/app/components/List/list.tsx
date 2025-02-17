@@ -49,7 +49,7 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
             >
                 Add
             </button>
-            <ul className="relative w-full py-8 my-2 bg-gray-200 rounded-lg">
+            <ul className="w-full py-8 my-2 bg-gray-200 rounded-lg flex justify-center flex-col">
                 {items.map((item) => (
                     <ListItem key={item.id} item={item} deleteHandler={deleteItem} />
                 ))}
