@@ -13,7 +13,6 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
     const [input, setInput] = useState("");
 
     const lastId = React.useRef(items.length+favs.length);
-    console.log(lastId);
 
     function addToList(item : TodoItem) {
         if(item.isFav) {
