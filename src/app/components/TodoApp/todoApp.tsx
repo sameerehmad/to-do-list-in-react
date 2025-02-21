@@ -1,3 +1,4 @@
+import Header from "../Header/header";
 import List from "../List/list";
 
 export type TodoItem = {
@@ -13,8 +14,11 @@ const items:TodoItem[] = [{id: 1, todo: "First item", color:"green", isFav:false
 
 
 
-export default function TodoApp() {
+export default function TodoApp({title} : {title : string}) {
     return (
+        <>
+        <Header classes="relative w-full bg-blue-700 text-white text-center p-8 rounded-b-xl" title={title} textStyles="font-semibold text-3xl" />
         <List initItems={items} />
+        </>
     );
 }
