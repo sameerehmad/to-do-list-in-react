@@ -9,7 +9,7 @@ export default function SubPage() {
 
     if (sublistId === 0) {
         return (
-            <Error title="Invalid sublist ID" />
+            <Error statusCode={0} title="Invalid sublist ID" />
         );
     }
     return (
