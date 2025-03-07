@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import Error from "next/error";
 
 export default function SubPage() {
-    const sublistId = useParams().sublist_id;
+    const sublistId = useParams().sublist_id as number;
 
     if (sublistId === 0) {
         return (
