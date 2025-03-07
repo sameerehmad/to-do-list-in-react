@@ -12,10 +12,14 @@ export default function ListItem(
 
     const itemContent : ReactNode = hasSubList?
                         (
+                        <div className="grow shrink basis-0 text-center my-1 break-all font-medium hover:text-xl hover:font-semibold transition-all">
                             <Link href={"/"+item.id}>{item.todo}</Link>
+                        </div>
                         ):
                         (
-                            <>{item.todo}</>
+                        <div className="grow shrink basis-0 text-center my-1 break-all font-medium">
+                            {item.todo}
+                        </div>
                         );
     return (
         <li className="mx-auto my-2 px-4 py-3 w-11/12 inline-flex gap-10 justify-center items-center rounded-xl text-lg border-black border overflow-hidden group" style={{backgroundColor : item.color}}>
@@ -27,7 +31,7 @@ export default function ListItem(
                     fill="none" onClick={() => favHandler(item)}/>
                 </svg>
             </div>
-            <div className="grow shrink basis-0 text-center my-1 break-all font-medium">{itemContent}</div>
+            {itemContent}
             
             <button
                 className="bg-red-100 text-red py-2 px-6
