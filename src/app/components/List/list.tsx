@@ -7,12 +7,13 @@ import { TodoItem } from '../TodoApp/todoApp';
 const itemColors:string[] = ["blue", "green", "yellow", "orange", "violet", "pink"];
 const getRandomInRange = (min : number, max : number) => Math.floor(Math.random() * (max - min)) + min;
 
-export default function List ({initItems} : {initItems : TodoItem[]}){
+export default function List ({initItems, listId} : {initItems : TodoItem[], listId : number}){
     const [favs, setFavs] = useState<TodoItem[]>([]);
     const [items, setItems] = useState<TodoItem[]>(initItems);
     const [input, setInput] = useState("");
 
     const lastId = React.useRef(items.length+favs.length);
+    const hasSubList = (listId === 0)? true : false;
 
     function addToList(item : TodoItem) {
         if(item.isFav) {
@@ -58,6 +59,8 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
         addToList(item);
     }
 
+    console.log("List ID : " + listId);
+
     return (
         <div className='flex flex-col align-items-center'>
             <form onSubmit={addHandler} className="flex flex-col align-items">
@@ -75,10 +78,10 @@ export default function List ({initItems} : {initItems : TodoItem[]}){
             </form>
             <ul className="w-full py-8 my-2 bg-gray-200 rounded-lg flex justify-center flex-col">
                 {favs.map((fav) => (
-                    <ListItem key={fav.id} item={fav} deleteHandler={deleteItem} favHandler={toggleFav} />
+                    <ListItem key={fav.id} item={fav} deleteHandler={deleteItem} favHandler={toggleFav} hasSubList={hasSubList} />
                 ))}
                 {items.map((item) => (
-                    <ListItem key={item.id} item={item} deleteHandler={deleteItem} favHandler={toggleFav} />
+                    <ListItem key={item.id} item={item} deleteHandler={deleteItem} favHandler={toggleFav} hasSubList={hasSubList} />
                 ))}
             </ul>
         </div>
