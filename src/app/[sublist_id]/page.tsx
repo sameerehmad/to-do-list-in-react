@@ -7,7 +7,7 @@ import Error from "next/error";
 export default function SubPage() {
     const sublistId = useParams().sublist_id;
 
-    if (sublistId == 0) {
+    if (sublistId === 0) {
         return (
             <Error title="Invalid sublist ID" />
         );
