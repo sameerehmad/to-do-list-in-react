@@ -1,11 +1,22 @@
 import { TodoItem } from '../TodoApp/todoApp';
+import Link from 'next/link';
+import { ReactNode } from 'react';
+
 export default function ListItem(
-    {item, deleteHandler, favHandler} : 
-    {item : TodoItem, deleteHandler : (id : number , isFav: boolean) => void, favHandler : (item : TodoItem) => void})  
+    {item, hasSubList, deleteHandler, favHandler} : 
+    {item : TodoItem, hasSubList : boolean, deleteHandler : (id : number , isFav: boolean) => void, favHandler : (item : TodoItem) => void})  
     {
     
     const favTag = "fill-red-700";
     const nonFavTag = "fill-transparent hover:fill-red-400"
+
+    const itemContent : ReactNode = hasSubList?
+                        (
+                            <Link href={"/"+item.id}>{item.todo}</Link>
+                        ):
+                        (
+                            <>{item.todo}</>
+                        );
     return (
         <li className="mx-auto my-2 px-4 py-3 w-11/12 inline-flex gap-10 justify-center items-center rounded-xl text-lg border-black border overflow-hidden group" style={{backgroundColor : item.color}}>
             <div data-svg-wrapper className="relative">
@@ -16,7 +27,7 @@ export default function ListItem(
                     fill="none" onClick={() => favHandler(item)}/>
                 </svg>
             </div>
-            <div className="grow shrink basis-0 text-center my-1 break-all font-medium">{item.todo}</div>
+            <div className="grow shrink basis-0 text-center my-1 break-all font-medium">{itemContent}</div>
             
             <button
                 className="bg-red-100 text-red py-2 px-6
